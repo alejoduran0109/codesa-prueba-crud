@@ -1,0 +1,31 @@
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput  placeholder="Nombre"  [(ngModel)]="user.nombre">
+  </mat-form-field>
+
+    <div>
+      <label>Activo </label>
+      <mat-radio-group  [(ngModel)]="user.activo">
+        <mat-radio-button value="1">Si </mat-radio-button>
+        <mat-radio-button value="0">No </mat-radio-button>
+      </mat-radio-group>
+    </div>
+ 
+
+  <mat-form-field appearance="fill">
+    <mat-label *ngIf="user.rol">{{user.rol.nombre}}</mat-label>
+    <mat-select matInput placeholder="Seleccione un rol" [(ngModel)]="user.rol">
+      <mat-option *ngFor="let r of rol" [value] = "r">
+        {{r.nombre}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-button color ="primary" (click)="aceptar()">
+      Aceptar
+  </button>
+
+  <button mat-button color ="primary"  (click)="cancelar()">
+    Cancelar
+</button>
